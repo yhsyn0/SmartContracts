@@ -1,6 +1,7 @@
 pragma solidity ^0.5.0;
 
-contract DeferredEquityPlan { // lvl 3: equity plan
+contract DeferredEquityPlan // lvl 3: equity plan
+{ 
     uint fakenow = now;
     address human_resources;
 
@@ -20,12 +21,14 @@ contract DeferredEquityPlan { // lvl 3: equity plan
 
     uint public distributed_shares; // starts at 0
 
-    constructor(address payable _employee) public {
+    constructor(address payable _employee) public 
+    {
         human_resources = msg.sender;
         employee = _employee;
     }
 
-    function distribute() public {
+    function distribute() public 
+    {
         require(msg.sender == human_resources || msg.sender == employee, "You are not authorized to execute this contract.");
         require(active == true, "Contract not active.");
 
@@ -49,20 +52,23 @@ contract DeferredEquityPlan { // lvl 3: equity plan
         if (distributed_shares > 1000) {
             distributed_shares = 1000;
         }
-    }
+}
 
     // human_resources and the employee can deactivate this contract at-will
-    function deactivate() public {
+    function deactivate() public 
+    {
         require(msg.sender == human_resources || msg.sender == employee, "You are not authorized to deactivate this contract.");
         active = false;
     }
 
     // Since we do not need to handle Ether in this contract, revert any Ether sent to the contract directly
-    function() external payable {
+    function() external payable 
+    {
         revert("Do not send Ether to this contract!");
     }
 
-    function fastforward() public {
+    function fastforward() public 
+    {
         fakenow += 366 days;
     }
 }
