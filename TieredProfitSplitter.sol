@@ -1,4 +1,5 @@
 pragma solidity ^0.5.0;
+
 contract TieredProfitSplitter 
 {
     // @TODO: Create three payable addresses representing `employee_one`, `employee_two` and `employee_three`.
