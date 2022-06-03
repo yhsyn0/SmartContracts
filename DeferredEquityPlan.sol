@@ -1,7 +1,6 @@
 pragma solidity ^0.5.0;
 
-// lvl 3: equity plan
-contract DeferredEquityPlan {
+contract DeferredEquityPlan { // lvl 3: equity plan
     uint fakenow = now;
     address human_resources;
 
