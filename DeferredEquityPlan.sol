@@ -1,7 +1,7 @@
 pragma solidity ^0.5.0;
 // lvl 3: equity plan
-contract DeferredEquityPlan
-{ 
+contract DeferredEquityPlan 
+{
     uint fakenow = now;
     address human_resources;
 
@@ -49,10 +49,11 @@ contract DeferredEquityPlan
         // Your code here!
 
         // double check in case the employee does not cash out until after 5+ years
-        if (distributed_shares > 1000) {
+        if (distributed_shares > 1000) 
+        {
             distributed_shares = 1000;
         }
-}
+    }
 
     // human_resources and the employee can deactivate this contract at-will
     function deactivate() public 
@@ -67,8 +68,7 @@ contract DeferredEquityPlan
         revert("Do not send Ether to this contract!");
     }
 
-    function fastforward() public 
-    {
+    function fastforward() public {
         fakenow += 366 days;
     }
 }
